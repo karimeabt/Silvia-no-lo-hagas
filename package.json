@@ -1,0 +1,19 @@
+{
+  "name": "silvia-no-lo-hagas",
+  "version": "1.0.0",
+  "description": "Un juego de suspenso/terror inspirado en experiencias reales. Explora la casa, descubre secretos y vive la historia desde la perspectiva de cinco personajes.   Tecnologías: React, Express.js, MongoDB, Socket.io.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1",
+    "socket.io-client": "^4.8.1"
+  }
+}

@@ -1,0 +1,42 @@
+/* src/HabitacionConSVG.css */
+.habitacion-con-svg {
+    background-color: #2f2f2f;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .fondo-habitacion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .objetos-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para que los objetos SVG puedan interactuar */
+  }
+  
+  .circle:hover {
+    cursor: pointer;
+    fill: rgba(255, 0, 0, 0.5);
+  }
+  
+  .pista {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    width: 80%;
+    text-align: center;
+  }
+  

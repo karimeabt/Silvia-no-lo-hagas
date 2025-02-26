@@ -1,0 +1,78 @@
+/* src/InicioJuego.css */
+
+.inicio-juego {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #110606;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.personajes-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.personaje {
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+  transition: all 0.3s;
+}
+
+.personaje img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.personaje:hover {
+  transform: scale(1.1);
+}
+
+.bloqueado {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.personaje p {
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.personaje span {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.personaje-seleccionado {
+  margin-top: 30px;
+  text-align: center;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
