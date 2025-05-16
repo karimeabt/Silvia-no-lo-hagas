@@ -1,12 +1,17 @@
 // src/App.jsx
 
 import React from "react";
-import InicioJuego from "./inicioJuego";
+//import InicioJuego from "./inicioJuego";
+import Drawer from "./Habitacion";
 
 function App() {
   return (
-    <div>
+    /*<div>
       <InicioJuego />
+    </div>*/
+    <div>
+    <h1>Ej. de Sprite Sheet</h1>
+    <Drawer />
     </div>
   );
 }

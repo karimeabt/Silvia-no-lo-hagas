@@ -1,58 +1,56 @@
 import React, { useState } from "react";
-import "./habitacion.css";
-import habitacionAerea from '../../assets/images/habitacion_laura/habitacion-aerea.png';
+import "./Habitacion.css";
+import DiarioPistas from "./DiarioPistas";
+
+// Importar las imágenes de los frames
+import cajon_cerrado from "../../assets/images/sprites/cajon_cerrado.png";
+import cajon_abierto from "../../assets/images/sprites/cajon_abierto.png";
 
 
-// Lista de objetos dentro de la habitación
-const objetos = [
-  { id: 1, nombre: "Cuadro", pista: "Este cuadro esconde un secreto, intenta mirar detrás.", x: 150, y: 100 },
-  { id: 2, nombre: "Escritorio", pista: "En el escritorio hay una carta con pistas clave.", x: 350, y: 250 },
-  { id: 3, nombre: "Ventana", pista: "La ventana muestra una vista interesante, pero no se puede abrir.", x: 500, y: 50 }
-];
+export default function Habitacion() {
+  // Estado del Cajon
+  const [cajon_abiertoEstado, setcajon_abiertoEstado] = useState(false);
 
-const HabitacionConSVG = ({ personaje }) => {
-  const [pista, setPista] = useState(null);
+  const handleClickBuro = () => {
+    //Si se hace clic en el buro == estado abiertos
+    setcajon_abiertoEstado(!cajon_abiertoEstado);
 
-  const obtenerPista = (id) => {
-    const objeto = objetos.find((obj) => obj.id === id);
-    setPista(objeto.pista);
+    // Simula encontrar una pista
+    if (!cajon_abiertoEstado) {
+      setPistas([...pistas, "Has encontrado una nota misteriosa."]);
+    }
+  };
+
+  // Estado del Diario de pistas
+   const [mostrarDiario, setMostrarDiario] = useState(false);
+   const [pistas, setPistas] = useState([]);
+
+  const toggleDiario = () => {
+    setMostrarDiario(!mostrarDiario);
   };
 
   return (
-    <div className="habitacion-con-svg">
-      <h1>{personaje.nombre} está en la habitación</h1>
-      
-      <div className="habitacion">
-        {/* Imagen aérea de la habitación */}
-        <img src={habitacionAerea} alt="Habitación Aérea" className="fondo-habitacion" />
-        
-        {/* SVG de objetos clicables */}
-        <svg className="objetos-svg" width="100%" height="100%">
-          {objetos.map((objeto) => (
-            <circle
-              key={objeto.id}
-              cx={objeto.x}
-              cy={objeto.y}
-              r="20"
-              fill="transparent"
-              stroke="red"
-              strokeWidth="2"
-              onClick={() => obtenerPista(objeto.id)}
-            >
-              <title>{objeto.nombre}</title>
-            </circle>
-          ))}
-        </svg>
-      </div>
+    <div className="habitacion">
 
-      {pista && (
-        <div className="pista">
-          <h2>Pista:</h2>
-          <p>{pista}</p>
-        </div>
-      )}
+      {/* Imagen del buró que cambia al hacer clic */}
+      <img
+        src={cajon_abiertoEstado ? cajon_abierto : cajon_cerrado}
+        alt="Buró"
+        className="buro"
+        onClick={handleClickBuro}
+      />
+
+       {/* Botón para abrir/cerrar el diario */}
+       <button className="boton-diario" onClick={() => setMostrarDiario(!mostrarDiario)}>
+        {mostrarDiario ? "Cerrar diario" : "Abrir diario"}
+      </button>
+
+      {/* Diario de pistas */}
+      {mostrarDiario && <DiarioPistas pistas={pistas} />}
     </div>
-  );
-};
 
-export default HabitacionConSVG;
+    
+  );
+}
+
+
